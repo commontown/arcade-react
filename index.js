@@ -2,15 +2,20 @@
 // 2. wait for parent window to postMessage with appletData
 // 3. call callback with the supplied appletData
 // let __server;
-export function portalRequestAppletData(callback) {
+export function portalRequestAppletData(dataFunction, topsFunction) {
   // do only if embeded
   if (window.parent !== window) {
     // listen for events from parents: pause, unpause and appletData
     window.addEventListener('message', ev => {
       const { type, params } = ev;
       // console.log('message:', { type, params });
-      if (type === 'appletData') {
-        callback(params);
+      switch (type) {
+        case 'appletData':
+          dataFunction(params);
+          break;
+        case 'getTops':
+          topsFunction(params);
+          break;
       }
     });
 
