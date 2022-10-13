@@ -22,7 +22,7 @@ export function portalRequestAppletData(dataFunction, topsFunction) {
     // tell parent i am ready
     window.parent.postMessage('requestAppletData', '*');
   } else {
-    callback(null);
+    dataFunction(null);
   }
 }
 
