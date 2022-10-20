@@ -1,6 +1,6 @@
 {
   "name": "@commontown/arcade-react",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A small React library for making games.",
   "main": "index.js",
   "scripts": {

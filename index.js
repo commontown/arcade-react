@@ -7,7 +7,7 @@ export function portalRequestAppletData(dataFunction, topsFunction) {
   if (window.parent !== window) {
     // listen for events from parents: pause, unpause and appletData
     window.addEventListener('message', ev => {
-      const { type, params } = ev;
+      const { type, params } = ev.data;
       // console.log('message:', { type, params });
       switch (type) {
         case 'appletData':
